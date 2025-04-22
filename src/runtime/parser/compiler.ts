@@ -72,7 +72,7 @@ export function compileHast(this: any, options: MDCParseOptions = {}) {
       const children = (
         node.tagName === 'template' && node.content?.children.length
           ? node.content.children
-          : node.children
+          : (node.children ? node.children : [])
       )
         .map(child => compileToJSON(child, node)).filter(Boolean)
 
